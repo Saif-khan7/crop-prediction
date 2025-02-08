@@ -43,7 +43,9 @@ function App() {
       {
         label: 'Best Sellers (kg)',
         data: bestSellers.map(item => item.TotalSales),
-        backgroundColor: 'rgba(54,162,235,0.6)'
+        backgroundColor: 'rgba(54,162,235,0.6)',
+        barPercentage: 0.6, // Adjust bar width
+        categoryPercentage: 0.8 // Adjust spacing between bars
       }
     ]
   };
@@ -55,7 +57,9 @@ function App() {
       {
         label: 'Worst Sellers (kg)',
         data: worstSellers.map(item => item.TotalSales),
-        backgroundColor: 'rgba(255,99,132,0.6)'
+        backgroundColor: 'rgba(255,99,132,0.6)',
+        barPercentage: 0.6,
+        categoryPercentage: 0.8
       }
     ]
   };
@@ -120,11 +124,11 @@ function App() {
       <div style={{ display: 'flex', gap: '50px' }}>
         <div style={{ width: '400px' }}>
           <h2>Top 3 Best-sellers</h2>
-          <Bar data={bestSellersData} />
+          <Bar data={bestSellersData} options={{ maintainAspectRatio: false, responsive: true }} />
         </div>
         <div style={{ width: '400px' }}>
           <h2>Top 3 Worst-sellers</h2>
-          <Bar data={worstSellersData} />
+          <Bar data={worstSellersData} options={{ maintainAspectRatio: false, responsive: true }} />
         </div>
       </div>
 

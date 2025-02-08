@@ -8,7 +8,7 @@ from datetime import timedelta
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes and all domains
 # 1) Load Data
-df = pd.read_csv('../data/crop_sales_data.csv', parse_dates=['Date'])
+df = pd.read_csv('../data/indian_crop_sales_data.csv', parse_dates=['Date'])
 
 # 2) Pre-calculate best and worst sellers
 crop_sums = df.groupby('Crop')['Quantity Sold (kg)'].sum().sort_values(ascending=False)
